@@ -7,6 +7,7 @@ export var jump_speed = -300
 export var wall_slide_speed = 100
 export var gravity = 1000
 var velocity = Vector2(-10, 0)
+signal paused
 
 var jumpsound1 = preload("res://Sounds/jump1.ogg")
 var jumpsound2 = preload("res://Sounds/jump2.ogg")
@@ -16,6 +17,9 @@ var jump_sounds = [jumpsound1, jumpsound2, jumpsound3, jumpsound4]
 
 func get_input():
 	var dir = 0
+	if Input.is_action_pressed("open_menu"):
+		get_tree().paused = true
+		emit_signal("paused")
 	if Input.is_action_pressed('ui_right'):
 		dir += 1
 	if Input.is_action_pressed('ui_left'):
