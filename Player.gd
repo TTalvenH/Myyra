@@ -8,6 +8,12 @@ export var wall_slide_speed = 100
 export var gravity = 1000
 var velocity = Vector2(-10, 0)
 
+var jumpsound1 = preload("res://Sounds/jump1.ogg")
+var jumpsound2 = preload("res://Sounds/jump2.ogg")
+var jumpsound3 = preload("res://Sounds/jump3.ogg")
+var jumpsound4 = preload("res://Sounds/jump4.ogg")
+var jump_sounds = [jumpsound1, jumpsound2, jumpsound3, jumpsound4]
+
 func get_input():
 	var dir = 0
 	if Input.is_action_pressed('ui_right'):
@@ -49,6 +55,8 @@ func _physics_process(delta):
 					velocity = Vector2(-500, -400)
 				if collision.normal.x > 0:
 					velocity = Vector2(500, -400)
+			$AudioStreamPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()])
+			$AudioStreamPlayer.play()
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision.normal.x < 0:
