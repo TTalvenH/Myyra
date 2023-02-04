@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/myyrahorrorcore.ogg-fb608b5d2f95f39f20abb62458fe8fce.oggstr"
+
+[deps]
+
+source_file="res://myyrahorrorcore.ogg"
+dest_files=[ "res://.import/myyrahorrorcore.ogg-fb608b5d2f95f39f20abb62458fe8fce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
