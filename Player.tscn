@@ -42,3 +42,5 @@ position = Vector2( -14, 16 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
 animation = "Standing"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
