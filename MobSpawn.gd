@@ -3,7 +3,7 @@ extends Node2D
 var root_spd_max = 300.0
 var root_spd_min = 200.0
 
-func _on_MobTimer_timeout():
+func _on_Mobtimer_timeout():
     var rand = RandomNumberGenerator.new()
     var Enemyscene = load("res://RootVeg.tscn")
     var screen_size = get_viewport().get_visible_rect().size
