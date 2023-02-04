@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Logo_placeholder.png" type="Texture" id=1]
+[ext_resource path="res://PauseScreen.gd" type="Script" id=2]
+[ext_resource path="res://Buttons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://beet2.png" type="Texture" id=4]
+[ext_resource path="res://Bazinga-Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://myrä_standing.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="PauseScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 18.0
+margin_right = -15.0
+margin_bottom = -27.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Beet2" type="Sprite" parent="."]
+position = Vector2( 523, 265 )
+scale = Vector2( 3.26667, 3.2 )
+texture = ExtResource( 4 )
+
+[node name="MyräStanding" type="Sprite" parent="Beet2"]
+position = Vector2( -38.5715, 1.875 )
+scale = Vector2( 1.09694, 1.10938 )
+texture = ExtResource( 7 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 11.0
+margin_top = 2.0
+margin_right = 588.0
+margin_bottom = 306.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 577.0
+margin_bottom = 117.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="Up row" type="HBoxContainer" parent="Menu"]
+margin_top = 121.0
+margin_right = 577.0
+margin_bottom = 210.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Up row"]
+margin_right = 577.0
+margin_bottom = 89.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Continue button" type="Button" parent="Menu/Up row/VBoxContainer"]
+pause_mode = 2
+margin_right = 577.0
+margin_bottom = 89.0
+size_flags_vertical = 3
+flat = true
+
+[node name="Label" type="Label" parent="Menu/Up row/VBoxContainer/Continue button"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_vertical = 6
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+
+[node name="Down row" type="HBoxContainer" parent="Menu"]
+margin_top = 214.0
+margin_right = 577.0
+margin_bottom = 304.0
+size_flags_vertical = 3
+
+[node name="button up" type="VBoxContainer" parent="Menu/Down row"]
+margin_right = 577.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="quit button" parent="Menu/Down row/button up" instance=ExtResource( 3 )]
+pause_mode = 2
+margin_bottom = 90.0
+size_flags_vertical = 3
+action_mode = 0
+
+[connection signal="pressed" from="Menu/Up row/VBoxContainer/Continue button" to="." method="_on_Continue_button_pressed"]
+[connection signal="pressed" from="Menu/Down row/button up/quit button" to="." method="_on_quit_button_pressed"]

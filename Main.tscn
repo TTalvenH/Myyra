@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://roots.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MobSpawn.gd" type="Script" id=3]
 [ext_resource path="res://myyrahorrorcore.ogg" type="AudioStream" id=4]
 [ext_resource path="res://bg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PauseScreen.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 
@@ -26,4 +27,10 @@ autostart = true
 stream = ExtResource( 4 )
 autoplay = true
 
+[node name="PauseScreen" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_right = 25.0
+margin_bottom = 18.0
+
+[connection signal="paused" from="Player" to="PauseScreen" method="_on_Player_paused"]
 [connection signal="timeout" from="MobSpawn/Mobtimer" to="MobSpawn" method="_on_Mobtimer_timeout"]
