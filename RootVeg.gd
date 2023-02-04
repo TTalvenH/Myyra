@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+func settype(type):
+	 vegtype = type
+
 func _ready():
 	var rootvegtype = randi()%3
 	if (rootvegtype == 1):
