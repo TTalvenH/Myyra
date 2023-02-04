@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://bgsprite.gd" type="Script" id=1]
+[ext_resource path="res://bgtexture.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/bgtexture.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/bgcrack1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/bgrock1.png" type="Texture" id=6]
+[ext_resource path="res://bgRock.gd" type="Script" id=7]
+
+[sub_resource type="Gradient" id=2]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.203911, 0.606145, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0.108648, 0, 0, 0, 0.368627 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 2 )
+use_hdr = true
+fill = 1
+fill_from = Vector2( 0.5125, 0.397917 )
+
+[node name="BG" type="Node2D"]
+
+[node name="BGColor" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0.211765, 0.211765, 0.156863, 1 )
+
+[node name="BGTexture" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="TextureSprite" type="Sprite" parent="BGTexture"]
+position = Vector2( 320, 1440 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 2880 )
+
+[node name="Crqck" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Crqck"]
+texture = ExtResource( 5 )
+
+[node name="Rock" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Rock"]
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="Gradient" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+scale = Vector2( 10, 5.625 )
+texture = SubResource( 3 )

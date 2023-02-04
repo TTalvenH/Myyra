@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://roots.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MobSpawn.gd" type="Script" id=3]
 [ext_resource path="res://myyrahorrorcore.ogg" type="AudioStream" id=4]
+[ext_resource path="res://bg.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
+
+[node name="BG" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 343, 4 )
