@@ -27,6 +27,8 @@ script = ExtResource( 7 )
 
 [node name="Potato" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
+playing = true
 
 [node name="PotatoCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
