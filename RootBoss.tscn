@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/beet5.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/beet2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/beet1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/beet3.png" type="Texture" id=4]
+[ext_resource path="res://RootBoss.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/beet4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 74.0
+height = 68.0
+
+[node name="RootBoss" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 5 )
+
+[node name="BossSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 118, 144 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 119, 101.5 )
+scale = Vector2( 7.35, 9.55 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
