@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/turn3.ogg-337515ffe90bf01d05e5f5e9b6eb5c52.oggstr"
+
+[deps]
+
+source_file="res://Sounds/turn3.ogg"
+dest_files=[ "res://.import/turn3.ogg-337515ffe90bf01d05e5f5e9b6eb5c52.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
