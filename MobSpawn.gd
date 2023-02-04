@@ -1,7 +1,7 @@
 extends Node2D
 
-var root_spd_max = 250.0
-var root_spd_min = 150.0
+var root_spd_max = 300.0
+var root_spd_min = 200.0
 
 func _on_MobTimer_timeout():
     var rand = RandomNumberGenerator.new()
