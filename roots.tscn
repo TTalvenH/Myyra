@@ -38,7 +38,6 @@ script = ExtResource( 1 )
 position = Vector2( 64, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root1"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -60,7 +59,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 128, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root2"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -82,7 +80,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 192, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root3"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -104,7 +101,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 256, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root4"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -126,7 +122,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 320, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root5"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -148,7 +143,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 384, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root6"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -170,7 +164,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 448, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root7"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -192,7 +185,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 512, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root8"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
@@ -214,7 +206,6 @@ region_rect = Rect2( 0, 0, 4, 4 )
 position = Vector2( 576, 0 )
 
 [node name="ConnectorSprite" type="Sprite" parent="Root9"]
-z_index = -1
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( -2, 0 )
