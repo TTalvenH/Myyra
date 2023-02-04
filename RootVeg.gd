@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var vegtype
+
 func settype(type):
 	 vegtype = type
 
