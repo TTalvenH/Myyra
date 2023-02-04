@@ -8,4 +8,4 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().change_scene("res://main.tscn")
+	get_tree().change_scene("res://Main.tscn")
