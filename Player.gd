@@ -15,6 +15,11 @@ var jumpsound3 = preload("res://Sounds/jump3.ogg")
 var jumpsound4 = preload("res://Sounds/jump4.ogg")
 var jump_sounds = [jumpsound1, jumpsound2, jumpsound3, jumpsound4]
 
+var turnsound1 = preload("res://Sounds/turn1.ogg")
+var turnsound2 = preload("res://Sounds/turn2.ogg")
+var turnsound3 = preload("res://Sounds/turn3.ogg")
+var turn_sounds = [turnsound1, turnsound2, turnsound3]
+
 func get_input():
 	var dir = 0
 	if Input.is_action_pressed("open_menu"):
@@ -69,12 +74,16 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("ui_x"):
 					position.x += 15
 					velocity.x = -velocity.x
+					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
+					$AudioStreamPlayer.play()
 			elif collision.normal.x > 0:
 				$AnimatedSprite.animation = "Hanging"
 				$AnimatedSprite.flip_h = true
 				if Input.is_action_just_pressed("ui_x"):
 					position.x -= 15
 					velocity.x = -velocity.x
+					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
+					$AudioStreamPlayer.play()
 	else:
 		if velocity.y < 500:
 			velocity.y += gravity * delta
