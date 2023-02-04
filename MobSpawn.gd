@@ -48,6 +48,9 @@ func _on_Mobtimer_timeout():
 	elif (vegtype == 2):
 		if (enemy.position.x < 0):
 			enemy._direction = 1
+			enemy.get_node("Potato").flip_v = true
+			enemy.get_node("Potato").play("", true)
 		elif (enemy.position.x > 0):
-			enemy._direction = 0
+			enemy._direction = 0 
+			enemy.get_node("Potato").play("", true)
 	add_child(enemy)
