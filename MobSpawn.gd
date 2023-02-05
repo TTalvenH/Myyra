@@ -9,7 +9,7 @@ var level = 1
 var levelmobs = 5
 var mobsspawned = 0
 var mobsperlevel = 1
-var bosstimer = 15.0
+var bosstimer = 14.0
 var fulltimer = 3.0
 var decrease = 0.25
 
@@ -18,8 +18,8 @@ func _ready():
 	$Mobtimer.start()
 
 func increase_timer():
-	if (mobsspawned == 0):
-		get_node("../HUD").show_message(str("Level ", level))
+	if (mobsspawned == levelmobs - 2):
+		get_node("../HUD").show_message("Boss Approaching!")
 	if (mobsspawned < levelmobs):
 		$Mobtimer.stop()
 		$Mobtimer.wait_time = fulltimer - ((fulltimer/1.5) * (float(mobsspawned)/levelmobs))
@@ -34,9 +34,11 @@ func increase_timer():
 		mobsperlevel += 1
 		fulltimer -= decrease
 		level += 1
-	print ($Mobtimer.wait_time)
+	#print ($Mobtimer.wait_time)
 
 func _on_Mobtimer_timeout():
+	if (mobsspawned == 0):
+		get_node("../HUD").show_message(str("Level ", level))
 	increase_timer()
 	spawnEnemy()
 	var adds = level
@@ -56,10 +58,10 @@ func spawnEnemy():
 	if (level > 1 and mobsspawned == 0):
 		enemyscene = load("res://RootBoss.tscn")
 		enemy = enemyscene.instance()
-		enemy.position.y = -200
+		enemy.position.y = screen_size.y+25
 		enemy.position.x = screen_size.x/2 - 125
 		direction = 0
-		enemy.linear_velocity = Vector2(0, 50 + (level * 10))
+		enemy.linear_velocity = Vector2(0, -(80 + (level * 10)))
 		add_child(enemy)
 		return
 	if (vegtype == 2):
