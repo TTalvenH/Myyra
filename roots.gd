@@ -3,9 +3,16 @@ extends Node2D
 export var speed = 180
 var screen_size
 
-var connector_sprite_height = 4
+var connector_sprite_height = 30
+var root_spacing = 64
 var min_root_length = 200
 var max_root_length = 700
+
+var roottexhoriz1 = preload("res://Sprites/roottexhoriz.png")
+var roottexhoriz2 = preload("res://Sprites/roottexhoriz2x.png")
+var roottexhoriz3 = preload("res://Sprites/roottexhoriz3x.png")
+var roottexhoriz4 = preload("res://Sprites/roottexhoriz4x.png")
+var roottexhoriz5 = preload("res://Sprites/roottexhoriz5x.png")
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -41,10 +48,10 @@ func _process(delta):
 			root.get_node("RootSprite").region_rect = Rect2(0, 0, 4, root_height)
 			root.get_node("CollisionShape2D").shape.extents.y = root_height / 2
 			# siirretaan spritet oikeisiin kohtiin uuden pituisessa juuressa
-			root.get_node("ConnectorSprite").position.y = -1 * (root_height / 2) - connector_sprite_height
+			root.get_node("ConnectorSprite").position.y = -1 * (root_height / 2)
 			root.get_node("RootSprite").position.y = -1 * (root_height / 2)
 			# siirretaan juurinode ruudun ylapuolelta ruudun alapuolelle
-			root.position.y = screen_size.y + root_height / 2#ylapaat alkaa aina samasta kohdasta
+			root.position.y = screen_size.y + root_height / 2 + connector_sprite_height#ylapaat alkaa aina samasta kohdasta
 			###root.position.y = screen_size.y + max_root_length / 2 + (max_root_length - root_height) / 2 # alapaat alkaa ain samasta kohdasta testi (ei toimi)
 			# yhdistetaan ConnectorSpritella lahimpaan juureen tai ruudun reunaan
 			connect_root(root)
@@ -69,7 +76,8 @@ func connect_root(curr_root):
 	for root in self.get_children():
 		if (curr_root.position.x != root.position.x):
 			var root_bottom_edge = root.position.y + root.get_node("CollisionShape2D").shape.extents.y
-			if (root_bottom_edge > curr_root_top_edge):
+			var root_top_edge = root.position.y - root.get_node("CollisionShape2D").shape.extents.y
+			if (root_bottom_edge > curr_root_top_edge && root_top_edge < curr_root_top_edge - connector_sprite_height):
 				if (root.position.x < curr_root.position.x):
 					if (connector_width >= curr_root.position.x - root.position.x):
 						connector_width = curr_root.position.x - root.position.x
@@ -79,9 +87,23 @@ func connect_root(curr_root):
 						connector_width = root.position.x - curr_root.position.x
 						connector_direction = 'right'
 	
+	var connector_textures = [roottexhoriz5]
+	if connector_width <= root_spacing * 4:
+		connector_textures.append(roottexhoriz4)
+	if connector_width <= root_spacing * 3:
+		connector_textures.append(roottexhoriz3)
+	if connector_width <= root_spacing * 2:
+		connector_textures.append(roottexhoriz2)
+	if connector_width <= root_spacing:
+		connector_textures.append(roottexhoriz1)
+	curr_root.get_node("ConnectorSprite").texture = connector_textures[randi() % connector_textures.size()]
+	
 	if (connector_direction == 'left'):
 		curr_root.get_node("ConnectorSprite").offset.x = -2 - connector_width
+		curr_root.get_node("ConnectorSprite").flip_h = true
 	if (connector_direction == 'right'):
 		curr_root.get_node("ConnectorSprite").offset.x = -2
-	curr_root.get_node("ConnectorSprite").region_rect = Rect2(0, 0, 4 + connector_width, 4)
+		curr_root.get_node("ConnectorSprite").flip_h = false
+	curr_root.get_node("ConnectorSprite").region_rect = Rect2(0, 0, 4 + connector_width, connector_sprite_height)
+	curr_root.get_node("ConnectorSprite").offset.y = -1 * connector_sprite_height
 
