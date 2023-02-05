@@ -28,7 +28,6 @@ script = ExtResource( 5 )
 [node name="BossSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 centered = false
 
