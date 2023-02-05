@@ -26,20 +26,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1.0
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 640.0
-margin_bottom = 360.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 641.0
+margin_bottom = 362.0
 texture = ExtResource( 6 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 11.0
-margin_top = 2.0
+margin_top = 30.0
 margin_right = 588.0
-margin_bottom = 306.0
+margin_bottom = 334.0
 
 [node name="Logo" type="TextureRect" parent="Menu"]
 modulate = Color( 1, 1, 1, 0 )
