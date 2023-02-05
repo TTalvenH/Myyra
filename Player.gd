@@ -4,8 +4,8 @@ export var speed = 150
 export (float, 0, 1.0) var air_friction = 1.0
 export (float, 0, 1.0) var acceleration = 0.3
 export var jump_speed = -300
-export var wall_slide_speed = 70
-export var gravity = 1300
+export var wall_slide_speed = 50
+export var gravity = 1500
 var velocity = Vector2(-10, 0)
 signal paused
 signal game_over
@@ -62,9 +62,9 @@ func _physics_process(delta):
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)
 				if collision.normal.x < 0:
-					velocity = Vector2(-700, -650)
+					velocity = Vector2(-700, -550)
 				if collision.normal.x > 0:
-					velocity = Vector2(700, -650)
+					velocity = Vector2(700, -550)
 			$AudioStreamPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()])
 			$AudioStreamPlayer.play()
 		for i in get_slide_count():
@@ -86,8 +86,7 @@ func _physics_process(delta):
 					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
 					$AudioStreamPlayer.play()
 	else:
-		if velocity.y < 1500:
-			velocity.y += gravity * delta
+		velocity.y += gravity * delta
 		if velocity.y >= 1500:
 			emit_signal("game_over")
 			queue_free()
