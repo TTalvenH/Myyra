@@ -6,6 +6,7 @@ var scorecount = 0
 func _ready():
 	$GameOverLabel.hide()
 	$RestartButton.hide()
+	$QuitButton.hide()
 	$MessageTimer.start()
 	$ScoreTimer.start()
 
@@ -30,8 +31,13 @@ func _on_ScoreTimer_timeout():
 func game_over():
 	$GameOverLabel.show()
 	$RestartButton.show()
+	$QuitButton.show()
 
 func _on_RestartButton_pressed():
 	$GameOverLabel.hide()
 	$RestartButton.hide()
 	get_tree().reload_current_scene() 
+
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
