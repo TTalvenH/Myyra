@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://roots.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://myyrahorrorcore.ogg" type="AudioStream" id=4]
 [ext_resource path="res://bg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PauseScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD.gd" type="Script" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -32,5 +33,31 @@ visible = false
 margin_right = 25.0
 margin_bottom = 18.0
 
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 80.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="Message" type="Label" parent="HUD"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -116.0
+margin_bottom = -84.0
+text = "Slide on roots and dodge the angry roots!"
+align = 1
+
+[node name="ScoreTimer" type="Timer" parent="HUD"]
+
+[node name="MessageTimer" type="Timer" parent="HUD"]
+wait_time = 3.0
+
 [connection signal="timeout" from="MobSpawn/Mobtimer" to="MobSpawn" method="_on_Mobtimer_timeout"]
 [connection signal="paused" from="Player" to="PauseScreen" method="_on_Player_paused"]
+[connection signal="timeout" from="HUD/ScoreTimer" to="HUD" method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="HUD/MessageTimer" to="HUD" method="_on_MessageTimer_timeout"]
