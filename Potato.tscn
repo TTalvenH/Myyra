@@ -31,7 +31,7 @@ __meta__ = {
 
 [node name="Potato" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="PotatoCollision" type="CollisionShape2D" parent="."]

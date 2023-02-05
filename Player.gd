@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-export var speed = 450
+export var speed = 150
 export (float, 0, 1.0) var air_friction = 1.0
 export (float, 0, 1.0) var acceleration = 0.3
 export var jump_speed = -300
 export var wall_slide_speed = 70
-export var gravity = 1500
+export var gravity = 1300
 var velocity = Vector2(-10, 0)
 signal paused
 signal game_over
@@ -40,7 +40,7 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, air_friction)
 		
 func game_over():
-	queue_free()
+	get_tree().reload_current_scene() 
 
 func _physics_process(delta):
 	var on_wall = false
@@ -62,9 +62,9 @@ func _physics_process(delta):
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)
 				if collision.normal.x < 0:
-					velocity = Vector2(-700, -450)
+					velocity = Vector2(-700, -650)
 				if collision.normal.x > 0:
-					velocity = Vector2(700, -450)
+					velocity = Vector2(700, -650)
 			$AudioStreamPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()])
 			$AudioStreamPlayer.play()
 		for i in get_slide_count():
@@ -88,6 +88,8 @@ func _physics_process(delta):
 	else:
 		if velocity.y < 700:
 			velocity.y += gravity * delta
+		if velocity.y >= 700:
+			game_over()
 		if is_on_floor():
 			$AnimatedSprite.animation = "Standing"
 		else:
@@ -97,4 +99,4 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(body):
-		emit_signal("game_over")
+	game_over()
