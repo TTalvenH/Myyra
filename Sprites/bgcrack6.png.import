@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bgcrack1.png-3bea42b1f25f21463879d7470ee6fc31.stex"
+path="res://.import/bgcrack6.png-791a1521876c9cc1cab0fa58a922e6b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bgcrack1.png"
-dest_files=[ "res://.import/bgcrack1.png-3bea42b1f25f21463879d7470ee6fc31.stex" ]
+source_file="res://Sprites/bgcrack6.png"
+dest_files=[ "res://.import/bgcrack6.png-791a1521876c9cc1cab0fa58a922e6b0.stex" ]
 
 [params]
 
