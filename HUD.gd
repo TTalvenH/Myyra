@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var scorecount = 0
 
+var fallsound = preload("res://Sounds/fall.ogg")
+var fall_sounds = [fallsound]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$GameOverLabel.hide()
@@ -35,6 +38,8 @@ func game_over():
 	$GameOverLabel.show()
 	$RestartButton.show()
 	$QuitButton.show()
+	$AudioStreamPlayer.set_stream(fall_sounds[0])
+	$AudioStreamPlayer.play()
 
 func _on_RestartButton_pressed():
 	$GameOverLabel.hide()
