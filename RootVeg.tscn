@@ -50,7 +50,7 @@ height = 24.0
 [sub_resource type="CircleShape2D" id=6]
 radius = 14.0
 
-[node name="RootVeg" type="RigidBody2D"]
+[node name="RootVeg" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 6
 collision_mask = 6
 gravity_scale = 0.0
