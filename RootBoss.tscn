@@ -19,7 +19,7 @@ animations = [ {
 radius = 74.0
 height = 68.0
 
-[node name="RootBoss" type="RigidBody2D"]
+[node name="RootBoss" type="RigidBody2D" groups=["mobs"]]
 collision_layer = 6
 collision_mask = 6
 gravity_scale = 0.0
@@ -28,6 +28,7 @@ script = ExtResource( 5 )
 [node name="BossSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
+frame = 4
 playing = true
 centered = false
 

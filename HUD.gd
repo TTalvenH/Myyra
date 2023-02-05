@@ -29,6 +29,9 @@ func _on_ScoreTimer_timeout():
 	$ScoreLabel.text = str(scorecount)
 
 func game_over():
+	$ScoreTimer.stop()
+	get_node("../MobSpawn").stopspawn()
+	get_tree().call_group("mobs", "queue_free")
 	$GameOverLabel.show()
 	$RestartButton.show()
 	$QuitButton.show()

@@ -17,6 +17,9 @@ func _ready():
 	$Mobtimer.wait_time = fulltimer
 	$Mobtimer.start()
 
+func stopspawn():
+	$Mobtimer.stop()
+
 func increase_timer():
 	if (mobsspawned == levelmobs - 2):
 		get_node("../HUD").show_message("Boss Approaching!")
