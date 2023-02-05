@@ -17,7 +17,7 @@ func _ready():
 func set_direction(direction):
 	_direction = direction
 
-func _process(delta): 
+func _physics_process(delta):
 	if (_direction == 1):
 		_centre.x += rand_range(1, 3)
 	else:
@@ -27,3 +27,4 @@ func _process(delta):
 	var offset = Vector2(sin(_angle), cos(_angle)) * Radius;
 	var pos = _centre + offset
 	self.position = pos
+	$PotatoCollision.disabled = false
