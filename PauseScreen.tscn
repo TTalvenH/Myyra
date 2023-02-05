@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/myrä_standing.png" type="Texture" id=1]
 [ext_resource path="res://PauseScreen.gd" type="Script" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://Sprites/beet2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Bazinga-Regular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://Sprites/Logo_placeholder.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Roboto-Bold.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 46
@@ -18,6 +19,10 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=3]
 default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 42
+font_data = ExtResource( 7 )
 
 [node name="PauseScreen" type="Control"]
 anchor_right = 1.0
@@ -108,7 +113,9 @@ theme = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/shadow_offset_y = 4
-text = "QUIT"
+custom_fonts/font = SubResource( 4 )
+text = "Quit
+"
 
 [connection signal="pressed" from="Menu/Up row/VBoxContainer/Continue button" to="." method="_on_Continue_button_pressed"]
 [connection signal="pressed" from="Menu/Down row/button up/quit button" to="." method="_on_quit_button_pressed"]
