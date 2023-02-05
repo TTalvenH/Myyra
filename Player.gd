@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var speed = 250
+export var speed = 450
 export (float, 0, 1.0) var air_friction = 1.0
 export (float, 0, 1.0) var acceleration = 0.3
 export var jump_speed = -300
-export var wall_slide_speed = 100
+export var wall_slide_speed = 70
 export var gravity = 1500
 var velocity = Vector2(-10, 0)
 signal paused
@@ -32,7 +32,7 @@ func get_input():
 		dir -= 1
 	if Input.is_action_just_pressed("ui_r"):
 		position = Vector2(343, 4)
-	if dir:
+	if dir and !is_on_wall():
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
 	elif is_on_wall():
 		velocity.x = lerp(velocity.x, sign(velocity.x) * 0.1, 1)
@@ -55,16 +55,16 @@ func _physics_process(delta):
 	if on_wall:
 		velocity.y = wall_slide_speed
 		if Input.is_action_pressed("ui_up"):
-			velocity.y = wall_slide_speed / 10
+			velocity.y = 5
 		if Input.is_action_pressed("ui_down"):
 			velocity.y = wall_slide_speed * 3
 		if Input.is_action_just_pressed("ui_select"):
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)
 				if collision.normal.x < 0:
-					velocity = Vector2(-300, -450)
+					velocity = Vector2(-700, -450)
 				if collision.normal.x > 0:
-					velocity = Vector2(300, -450)
+					velocity = Vector2(700, -450)
 			$AudioStreamPlayer.set_stream(jump_sounds[randi() % jump_sounds.size()])
 			$AudioStreamPlayer.play()
 		for i in get_slide_count():
@@ -72,7 +72,7 @@ func _physics_process(delta):
 			if collision.normal.x < 0:
 				$AnimatedSprite.animation = "Hanging"
 				$AnimatedSprite.flip_h = false
-				if Input.is_action_pressed("ui_right"):
+				if Input.is_action_pressed("ui_right") and !i and !Input.is_action_pressed("ui_left"):
 					position.x += 15
 					velocity.x = -velocity.x
 					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
@@ -80,7 +80,7 @@ func _physics_process(delta):
 			elif collision.normal.x > 0:
 				$AnimatedSprite.animation = "Hanging"
 				$AnimatedSprite.flip_h = true
-				if Input.is_action_pressed("ui_left"):
+				if Input.is_action_pressed("ui_left") and !i and !Input.is_action_pressed("ui_right"):
 					position.x -= 15
 					velocity.x = -velocity.x
 					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
