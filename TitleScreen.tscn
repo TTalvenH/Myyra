@@ -36,9 +36,9 @@ texture = ExtResource( 6 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 11.0
-margin_top = 30.0
+margin_top = 45.0
 margin_right = 588.0
-margin_bottom = 334.0
+margin_bottom = 349.0
 
 [node name="Logo" type="TextureRect" parent="Menu"]
 modulate = Color( 1, 1, 1, 0 )
