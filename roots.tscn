@@ -52,6 +52,7 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -2, 0 )
+flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 4, 4 )
 
@@ -73,6 +74,7 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -2, 0 )
+flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 4, 4 )
 
@@ -94,6 +96,7 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -2, 0 )
+flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 4, 4 )
 
@@ -115,6 +118,7 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -2, 0 )
+flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 4, 4 )
 
