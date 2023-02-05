@@ -77,6 +77,7 @@ margin_bottom = 40.0
 text = "Restart"
 
 [connection signal="timeout" from="MobSpawn/Mobtimer" to="MobSpawn" method="_on_Mobtimer_timeout"]
+[connection signal="game_over" from="Player" to="HUD" method="game_over"]
 [connection signal="paused" from="Player" to="PauseScreen" method="_on_Player_paused"]
 [connection signal="timeout" from="HUD/ScoreTimer" to="HUD" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="HUD/MessageTimer" to="HUD" method="_on_MessageTimer_timeout"]

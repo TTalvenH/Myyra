@@ -33,4 +33,5 @@ func game_over():
 
 func _on_RestartButton_pressed():
 	$GameOverLabel.hide()
-	$RestartButton.hide()	
+	$RestartButton.hide()
+	get_tree().reload_current_scene() 

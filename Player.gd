@@ -86,10 +86,11 @@ func _physics_process(delta):
 					$AudioStreamPlayer.set_stream(turn_sounds[randi() % turn_sounds.size()])
 					$AudioStreamPlayer.play()
 	else:
-		if velocity.y < 700:
+		if velocity.y < 1500:
 			velocity.y += gravity * delta
-		if velocity.y >= 700:
-			game_over()
+		if velocity.y >= 1500:
+			emit_signal("game_over")
+			queue_free()
 		if is_on_floor():
 			$AnimatedSprite.animation = "Standing"
 		else:
@@ -99,4 +100,5 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	game_over()
+	emit_signal("game_over")
+	queue_free()
