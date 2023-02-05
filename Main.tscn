@@ -86,6 +86,8 @@ margin_right = -288.0
 margin_bottom = 67.0
 text = "Quit"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD"]
+
 [connection signal="timeout" from="MobSpawn/Mobtimer" to="MobSpawn" method="_on_Mobtimer_timeout"]
 [connection signal="game_over" from="Player" to="HUD" method="game_over"]
 [connection signal="paused" from="Player" to="PauseScreen" method="_on_Player_paused"]
