@@ -4,6 +4,8 @@ var scorecount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$GameOverLabel.hide()
+	$RestartButton.hide()
 	$MessageTimer.start()
 	$ScoreTimer.start()
 
@@ -24,3 +26,11 @@ func _on_MessageTimer_timeout():
 func _on_ScoreTimer_timeout():
 	scorecount += 1
 	$ScoreLabel.text = str(scorecount)
+
+func game_over():
+	$GameOverLabel.show()
+	$RestartButton.show()
+
+func _on_RestartButton_pressed():
+	$GameOverLabel.hide()
+	$RestartButton.hide()	

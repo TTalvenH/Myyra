@@ -57,7 +57,27 @@ align = 1
 [node name="MessageTimer" type="Timer" parent="HUD"]
 wait_time = 3.0
 
+[node name="GameOverLabel" type="Label" parent="HUD"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_bottom = 7.0
+text = "Game Over"
+align = 1
+
+[node name="RestartButton" type="Button" parent="HUD"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 288.0
+margin_top = 208.0
+margin_right = 352.0
+margin_bottom = 228.0
+text = "Restart"
+
 [connection signal="timeout" from="MobSpawn/Mobtimer" to="MobSpawn" method="_on_Mobtimer_timeout"]
 [connection signal="paused" from="Player" to="PauseScreen" method="_on_Player_paused"]
 [connection signal="timeout" from="HUD/ScoreTimer" to="HUD" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="HUD/MessageTimer" to="HUD" method="_on_MessageTimer_timeout"]
+[connection signal="pressed" from="HUD/RestartButton" to="HUD" method="_on_RestartButton_pressed"]
