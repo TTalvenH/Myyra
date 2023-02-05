@@ -17,7 +17,7 @@ func _process(delta):
 		if $Sprite.has_method("random_sprite"):
 			$Sprite.random_sprite()
 		$Sprite.flip_h = randf() > 0.5
-		position.y = screen_size.y * (1 + randf()) + $Sprite.texture.get_height() / 2
+		position.y = screen_size.y * (1 + rand_range(0, 2)) + $Sprite.texture.get_height() / 2
 		position.x = screen_size.x * randf()
 	#	$Sprite.scale.x = randf()
 	#	$Sprite.scale.y = $Sprite.scale.x

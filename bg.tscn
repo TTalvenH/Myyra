@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://bgsprite.gd" type="Script" id=1]
 [ext_resource path="res://bgtexture.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/bgtexture.png" type="Texture" id=3]
+[ext_resource path="res://bgCrack.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/bgcrack1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/bgrock1.png" type="Texture" id=6]
 [ext_resource path="res://bgRock.gd" type="Script" id=7]
@@ -39,6 +40,21 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Crqck"]
 texture = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Crqck2" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Crqck2"]
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Crqck3" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Crqck3"]
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="Rock" type="Node2D" parent="."]
 script = ExtResource( 1 )
