@@ -1,16 +1,16 @@
 extends Node2D
 
-var carrot_spd_max = 350.0
-var carrot_spd_min = 250.0
-var beet_spd_min = 150.0
-var beet_spd_max = 250.0
+var carrot_spd_max = 75.0
+var carrot_spd_min = 50.0
+var beet_spd_min = 90.0
+var beet_spd_max = 110.0
 
 var level = 1
-var levelmobs = 5
+var levelmobs = 15
 var mobsspawned = 0
 var mobsperlevel = 1
 var bosstimer = 14.0
-var fulltimer = 3.0
+var fulltimer = 3.5
 var decrease = 0.25
 
 func _ready():
@@ -64,7 +64,7 @@ func spawnEnemy():
 		enemy.position.y = screen_size.y+25
 		enemy.position.x = screen_size.x/2 - 125
 		direction = 0
-		enemy.linear_velocity = Vector2(0, -(80 + (level * 10)))
+		enemy.linear_velocity = Vector2(0, -(70 + (level * 10)))
 		add_child(enemy)
 		return
 	if (vegtype == 2):
