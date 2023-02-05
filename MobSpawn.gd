@@ -18,6 +18,8 @@ func _ready():
 	$Mobtimer.start()
 
 func increase_timer():
+	if (mobsspawned == 0):
+		get_node("../HUD").show_message(str("Level ", level))
 	if (mobsspawned < levelmobs):
 		$Mobtimer.stop()
 		$Mobtimer.wait_time = fulltimer - ((fulltimer/1.5) * (float(mobsspawned)/levelmobs))
@@ -32,7 +34,6 @@ func increase_timer():
 		mobsperlevel += 1
 		fulltimer -= decrease
 		level += 1
-		print (level)
 	print ($Mobtimer.wait_time)
 
 func _on_Mobtimer_timeout():
