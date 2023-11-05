@@ -20,3 +20,11 @@ Small weekend game jam project we created in a group of 4. Endless runner where 
 - SPACE            : jump of the root
 - Esc              : Pause
 
+## Collaborators
+
+- [@jnsh](https://github.com/jnsh) 
+- [@ttalvenh](https://www.github.com/ttalvenh)
+- [@rayarray](https://github.com/rayarray)
+- Linus Broms
+
+
