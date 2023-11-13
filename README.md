@@ -1,7 +1,7 @@
 # Myyrä
 Small weekend game jam project we created in a group of 4, engine used was Godot. Endless runner where your goal is to stay alive while you avoid fallings root vegetables as you slide down the roots.
 
-    
+My job was to program how player characters physics and movement worked.
 
 ## Gameplay link:
  
